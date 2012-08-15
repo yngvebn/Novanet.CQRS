@@ -7,6 +7,7 @@ using Ninject.Extensions.Conventions;
 using TestApp.Events;
 using TestApp.Handlers;
 using TestApp.Services;
+using DomainEvents.Ninject;
 
 namespace TestApp
 {

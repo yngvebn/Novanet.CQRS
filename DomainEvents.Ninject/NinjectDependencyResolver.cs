@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DomainEventExtensions;
 using Ninject;
 
-namespace TestApp
+namespace DomainEvents.Ninject
 {
     public class NinjectDependencyResolver: IDependencyResolver
     {

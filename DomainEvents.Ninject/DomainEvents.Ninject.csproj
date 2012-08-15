@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2E0FC363-F000-472F-88CD-22504037258E}</ProjectGuid>
+    <ProjectGuid>{A35D483D-D781-478B-817E-A9B51CE9CF6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainEvents</RootNamespace>
-    <AssemblyName>DomainEvents</AssemblyName>
+    <RootNamespace>DomainEvents.Ninject</RootNamespace>
+    <AssemblyName>DomainEvents.Ninject</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DomainEvents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DomainEvents">
       <HintPath>..\packages\Yngve.DomainEvents.1.0.0\lib\net40\DomainEvents.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
@@ -46,11 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDomainEvent.cs" />
-    <Compile Include="DomainEvents.cs" />
-    <Compile Include="IDependencyResolver.cs" />
-    <Compile Include="IDomainEventHandler.cs" />
-    <Compile Include="IDomainEvents.cs" />
+    <Compile Include="NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
