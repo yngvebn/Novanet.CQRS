@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\DoSomething.cs" />
     <Compile Include="Events\SomeDomainEvent.cs" />
     <Compile Include="Handlers\SomeDomainEventHandler.cs" />
     <Compile Include="Handlers\ThisRocksEventHandler.cs" />
