@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Text;
 using DomainEventExtensions;
+using DomainEvents;
 using Ninject;
 using Ninject.Extensions.Conventions;
+using TestApp.Commands;
 using TestApp.Events;
 using TestApp.Handlers;
 using TestApp.Services;
@@ -17,6 +19,11 @@ namespace TestApp
             get { return _kernel.Get<IDomainEvents>(); }
         }
 
+        private static ICommandExecutor CommandExecutor
+        {
+            get { return _kernel.Get<ICommandExecutor>(); }
+        }
+
         static void Main(string[] args)
         {
             SetupKernel();
@@ -24,7 +31,8 @@ namespace TestApp
                                 {
                                     ev.Text = "Hello world";
                                 });
-
+            var result = CommandExecutor.Execute(new DoSomething() {Text = "Hello world"});
+            Console.WriteLine(result.Message);
             Console.Read();
         }
 
@@ -38,6 +46,13 @@ namespace TestApp
                 .InNamespaceOf<SomeDomainEventHandler>()
                 .BindAllInterfaces()
                 .Configure(binding => binding.InSingletonScope()));
+
+            _kernel.Bind(syntax => syntax
+       .FromAssemblyContaining<DoSomethingCommandHandler>()
+       .SelectAllTypes()
+       .InNamespaceOf<DoSomethingCommandHandler>()
+       .BindAllInterfaces()
+       .Configure(binding => binding.InSingletonScope()));
 
             _kernel.Bind(
                 syntax => syntax

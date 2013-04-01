@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutor.cs" />
+    <Compile Include="CommandResult.cs" />
+    <Compile Include="CommandStatus.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandExecutor.cs" />
+    <Compile Include="ICommandHandler.cs" />
     <Compile Include="IDomainEvent.cs" />
     <Compile Include="DomainEvents.cs" />
     <Compile Include="IDomainEvents.cs" />
