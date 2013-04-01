@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using DomainEventExtensions;
 using Ninject;
 
+<<<<<<< HEAD:DomainEvents.Ninject/NinjectDependencyResolver.cs
 namespace DomainEvents.Ninject
+=======
+namespace CQRS.Ninject
+>>>>>>> Cleanup and separate Nuget Project:DomainEvents.Ninject/NinjectDependencyResolver.cs
 {
     public class NinjectDependencyResolver: IDependencyResolver
     {

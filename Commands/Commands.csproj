@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2E0FC363-F000-472F-88CD-22504037258E}</ProjectGuid>
+    <ProjectGuid>{1382C8FE-2147-42F8-A320-A211C8FB7EEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainEvents</RootNamespace>
-    <AssemblyName>DomainEvents</AssemblyName>
+    <RootNamespace>Commands</RootNamespace>
+    <AssemblyName>Commands</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DomainEvents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Yngve.DomainEvents.1.0.0\lib\net40\DomainEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDomainEvent.cs" />
-    <Compile Include="DomainEvents.cs" />
-    <Compile Include="IDomainEvents.cs" />
-    <Compile Include="IHandleDomainEvent.cs" />
+    <Compile Include="CommandExecutor.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandResult.cs" />
+    <Compile Include="CommandStatus.cs" />
+    <Compile Include="ICommandExecutor.cs" />
+    <Compile Include="ICommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj">

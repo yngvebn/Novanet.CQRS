@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DomainEventExtensions
+namespace CQRS.Core
 {
     public interface IDependencyResolver
     {

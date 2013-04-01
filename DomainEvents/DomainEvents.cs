@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CQRS.Core;
 
 namespace DomainEventExtensions
 {
@@ -31,7 +32,7 @@ namespace DomainEventExtensions
 
         private IEnumerable<dynamic> GetHandlersFor<T>() where T : IDomainEvent
         {
-            var handlerType = typeof(IDomainEventHandler<>);
+            var handlerType = typeof(IHandleDomainEvent<>);
             var genericHandlerType = handlerType.MakeGenericType(typeof(T));
             return _resolver.GetServices(genericHandlerType);
         }

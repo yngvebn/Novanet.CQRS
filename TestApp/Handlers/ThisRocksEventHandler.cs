@@ -5,7 +5,7 @@ using TestApp.Services;
 
 namespace TestApp.Handlers
 {
-    public class ThisRocksEventHandler: IDomainEventHandler<SomeDomainEvent>
+    public class ThisRocksEventHandler : IHandleDomainEvent<SomeDomainEvent>
     {
         private readonly ITextProcessor _textProcessor;
 

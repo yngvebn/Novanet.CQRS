@@ -4,7 +4,7 @@ using TestApp.Events;
 
 namespace TestApp.Handlers
 {
-    public class SomeDomainEventHandler: IDomainEventHandler<SomeDomainEvent>
+    public class SomeDomainEventHandler : IHandleDomainEvent<SomeDomainEvent>
     {
         public void Handle(SomeDomainEvent domainEvent)
         {
