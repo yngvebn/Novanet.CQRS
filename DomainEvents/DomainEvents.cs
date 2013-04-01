@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using CQRS.Core;
 
-namespace DomainEventExtensions
+namespace CQRS.DomainEvent
 {
     public class DomainEvents : IDomainEvents
     {

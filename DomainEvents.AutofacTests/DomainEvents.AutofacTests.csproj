@@ -65,9 +65,9 @@
       <Project>{dfb9d61d-fc56-4222-9eae-9c84e5faa8e9}</Project>
       <Name>DomainEvents.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainEvents\DomainEvents.csproj">
+    <ProjectReference Include="..\DomainEvents\CQRS.DomainEvents.csproj">
       <Project>{2e0fc363-f000-472f-88cd-22504037258e}</Project>
-      <Name>DomainEvents</Name>
+      <Name>CQRS.DomainEvents</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainEvents", "DomainEvents\DomainEvents.csproj", "{2E0FC363-F000-472F-88CD-22504037258E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.DomainEvents", "DomainEvents\CQRS.DomainEvents.csproj", "{2E0FC363-F000-472F-88CD-22504037258E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{A36A6A50-2ED6-467C-A0C8-6ECC63D4BC55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Ninject", "DomainEvents.Ninject\CQRS.Ninject.csproj", "{9DABFADF-D0F0-44C3-A95C-8AEE49986BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Commands\Commands.csproj", "{1382C8FE-2147-42F8-A320-A211C8FB7EEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Commands", "Commands\CQRS.Commands.csproj", "{1382C8FE-2147-42F8-A320-A211C8FB7EEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Core", "CQRS.Core\CQRS.Core.csproj", "{F66F1623-AE22-45FD-9615-77D53AB243CB}"
 EndProject
@@ -16,6 +16,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainEvents.Autofac", "DomainEvents.Autofac\DomainEvents.Autofac.csproj", "{DFB9D61D-FC56-4222-9EAE-9C84E5FAA8E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainEvents.AutofacTests", "DomainEvents.AutofacTests\DomainEvents.AutofacTests.csproj", "{B20FE656-56CC-49AD-AC4A-F58239373C04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C242C3A6-76BA-4B14-855F-E8C7505F5F3B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

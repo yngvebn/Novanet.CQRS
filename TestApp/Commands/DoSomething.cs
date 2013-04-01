@@ -1,18 +1,9 @@
-﻿using System;
-using DomainEvents;
+﻿using CQRS.Commands;
 
 namespace TestApp.Commands
 {
-    public class DoSomething: ICommand
+    public class DoSomething: Command
     {
         public string Text { get; set; }
-    }
-
-    public class DoSomethingCommandHandler: ICommandHandler<DoSomething>
-    {
-        public void Execute(DoSomething command)
-        {
-            throw new InvalidOperationException("That text is not valid: " +command.Text);
-        }
     }
 }

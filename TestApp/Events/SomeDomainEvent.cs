@@ -1,4 +1,4 @@
-﻿using DomainEventExtensions;
+﻿using CQRS.DomainEvent;
 
 namespace TestApp.Events
 {

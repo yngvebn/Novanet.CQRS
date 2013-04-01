@@ -58,9 +58,9 @@
       <Project>{F66F1623-AE22-45FD-9615-77D53AB243CB}</Project>
       <Name>CQRS.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainEvents\DomainEvents.csproj">
+    <ProjectReference Include="..\DomainEvents\CQRS.DomainEvents.csproj">
       <Project>{2e0fc363-f000-472f-88cd-22504037258e}</Project>
-      <Name>DomainEvents</Name>
+      <Name>CQRS.DomainEvents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

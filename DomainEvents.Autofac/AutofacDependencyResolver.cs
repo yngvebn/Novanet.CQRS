@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Autofac;
 using CQRS.Core;
-using DomainEventExtensions;
 
 namespace DomainEvents.Autofac
 {

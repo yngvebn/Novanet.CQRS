@@ -1,4 +1,4 @@
-namespace DomainEventExtensions
+namespace CQRS.DomainEvent
 {
     public interface IHandleDomainEvent<T> where T: IDomainEvent
     {

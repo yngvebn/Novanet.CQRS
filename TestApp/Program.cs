@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using CQRS.Commands;
 using CQRS.Core;
+using CQRS.DomainEvent;
 using CQRS.Ninject;
-using DomainEventExtensions;
-using DomainEvents;
 using Ninject;
 using Ninject.Extensions.Conventions;
 using TestApp.Commands;
@@ -16,7 +16,8 @@ namespace TestApp
 {
     class Program
     {
-        private static IDomainEvents DomainEvents {
+        private static IDomainEvents DomainEvents
+        {
             get { return _kernel.Get<IDomainEvents>(); }
         }
 
@@ -32,8 +33,16 @@ namespace TestApp
                                 {
                                     ev.Text = "Hello world";
                                 });
-            var result = CommandExecutor.Execute(new DoSomething() {Text = "Hello world"});
+            var result = CommandExecutor.Execute<DoSomething>(cmd =>
+                {
+                    cmd.Text = "Hello world";
+                });
             Console.WriteLine(result.Message);
+            var result2 = CommandExecutor.Execute<DoSomething>(cmd =>
+            {
+                cmd.Text = "Hey world";
+            });
+            Console.WriteLine(result2.Status);
             Console.Read();
         }
 
@@ -47,7 +56,7 @@ namespace TestApp
                 .InNamespaceOf<SomeDomainEventHandler>()
                 .BindAllInterfaces()
                 .Configure(binding => binding.InSingletonScope()));
-
+            _kernel.Bind<ICommandExecutor>().To<CommandExecutor>();
             _kernel.Bind(syntax => syntax
        .FromAssemblyContaining<DoSomethingCommandHandler>()
        .SelectAllTypes()

@@ -5,15 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2E0FC363-F000-472F-88CD-22504037258E}</ProjectGuid>
+    <ProjectGuid>{1382C8FE-2147-42F8-A320-A211C8FB7EEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainEvents</RootNamespace>
-    <AssemblyName>DomainEvents</AssemblyName>
+    <RootNamespace>CQRS.Commands</RootNamespace>
+    <AssemblyName>CQRS.Commands</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DomainEvents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Yngve.DomainEvents.1.0.0\lib\net40\DomainEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,19 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutor.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="CommandResult.cs" />
     <Compile Include="CommandStatus.cs" />
-    <Compile Include="ICommand.cs" />
     <Compile Include="ICommandExecutor.cs" />
-    <Compile Include="ICommandHandler.cs" />
-    <Compile Include="IDomainEvent.cs" />
-    <Compile Include="DomainEvents.cs" />
-    <Compile Include="IDomainEvents.cs" />
-    <Compile Include="IHandleDomainEvent.cs" />
+    <Compile Include="IHandleCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj">
@@ -73,7 +58,6 @@
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Nuget.Package\lib\net4 /y</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

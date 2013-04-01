@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CQRS.Core;
 
-namespace Commands
+namespace CQRS.Commands
 {
     public class CommandExecutor : ICommandExecutor
     {
@@ -15,7 +12,7 @@ namespace Commands
             _kernel = kernel;
         }
 
-        public CommandResult ExecuteCommand(Command command)
+        public CommandResult Execute(Command command)
         {
             dynamic handler = FindHandlerForCommand(command);
 
@@ -24,15 +21,26 @@ namespace Commands
                 handler.Handle(command as dynamic);
                 return CommandResult.Executed("Command executed successfully");
             }
+            catch (Exception ex)
+            {
+                return CommandResult.Failed(ex.Message);
+            }
             finally
             {
               
             }
         }
 
+        public CommandResult Execute<T>(Action<T> commandBuilder) where T : Command, new()
+        {
+            var command = new T();
+            commandBuilder(command);
+            return Execute(command);
+        }
+
         private object FindHandlerForCommand(Command command)
         {
-            var handlerType = typeof(ICommandHandler<>).MakeGenericType(command.GetType());
+            var handlerType = typeof(IHandleCommand<>).MakeGenericType(command.GetType());
             dynamic handler = _kernel.GetService(handlerType);
             return handler;
         }

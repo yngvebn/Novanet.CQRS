@@ -2,23 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A36A6A50-2ED6-467C-A0C8-6ECC63D4BC55}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{2E0FC363-F000-472F-88CD-22504037258E}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestApp</RootNamespace>
-    <AssemblyName>TestApp</AssemblyName>
+    <RootNamespace>CQRS.DomainEvent</RootNamespace>
+    <AssemblyName>CQRS.DomainEvent</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,8 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -37,14 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Conventions">
-      <HintPath>..\packages\ninject.extensions.conventions.3.0.0.11\lib\net40\Ninject.Extensions.Conventions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,39 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\DoSomething.cs" />
-    <Compile Include="Commands\DoSomethingCommandHandler.cs" />
-    <Compile Include="Events\SomeDomainEvent.cs" />
-    <Compile Include="Handlers\SomeDomainEventHandler.cs" />
-    <Compile Include="Handlers\ThisRocksEventHandler.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IDomainEvent.cs" />
+    <Compile Include="DomainEvents.cs" />
+    <Compile Include="IDomainEvents.cs" />
+    <Compile Include="IHandleDomainEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ITextProcessor.cs" />
-    <Compile Include="Services\TextProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Commands\CQRS.Commands.csproj">
-      <Project>{1382C8FE-2147-42F8-A320-A211C8FB7EEC}</Project>
-      <Name>CQRS.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj">
       <Project>{F66F1623-AE22-45FD-9615-77D53AB243CB}</Project>
       <Name>CQRS.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainEvents.Ninject\CQRS.Ninject.csproj">
-      <Project>{9DABFADF-D0F0-44C3-A95C-8AEE49986BED}</Project>
-      <Name>CQRS.Ninject</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DomainEvents\CQRS.DomainEvents.csproj">
-      <Project>{2E0FC363-F000-472F-88CD-22504037258E}</Project>
-      <Name>CQRS.DomainEvents</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Nuget.Package\lib\net4 /y</PostBuildEvent>
+  </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

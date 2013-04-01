@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-
-namespace DomainEventExtensions
+﻿namespace CQRS.DomainEvent
 {
     public interface IDomainEvent
     {

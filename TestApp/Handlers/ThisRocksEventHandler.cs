@@ -1,5 +1,5 @@
 ﻿using System;
-using DomainEventExtensions;
+using CQRS.DomainEvent;
 using TestApp.Events;
 using TestApp.Services;
 

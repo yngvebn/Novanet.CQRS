@@ -1,7 +1,6 @@
 using System;
-using System.Threading.Tasks;
 
-namespace DomainEventExtensions
+namespace CQRS.DomainEvent
 {
     public interface IDomainEvents
     {

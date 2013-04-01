@@ -1,4 +1,4 @@
-namespace Commands
+namespace CQRS.Commands
 {
     public class CommandResult
     {
