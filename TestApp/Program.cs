@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using CQRS.Core;
+using CQRS.Ninject;
 using DomainEventExtensions;
 using DomainEvents;
 using Ninject;
@@ -9,7 +11,6 @@ using TestApp.Commands;
 using TestApp.Events;
 using TestApp.Handlers;
 using TestApp.Services;
-using DomainEvents.Ninject;
 
 namespace TestApp
 {

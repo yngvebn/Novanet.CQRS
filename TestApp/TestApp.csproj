@@ -13,6 +13,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -65,9 +67,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainEvents.Ninject\DomainEvents.Ninject.csproj">
-      <Project>{A35D483D-D781-478B-817E-A9B51CE9CF6F}</Project>
-      <Name>DomainEvents.Ninject</Name>
+    <ProjectReference Include="..\CQRS.Core\CQRS.Core.csproj">
+      <Project>{F66F1623-AE22-45FD-9615-77D53AB243CB}</Project>
+      <Name>CQRS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainEvents.Ninject\CQRS.Ninject.csproj">
+      <Project>{9DABFADF-D0F0-44C3-A95C-8AEE49986BED}</Project>
+      <Name>CQRS.Ninject</Name>
     </ProjectReference>
     <ProjectReference Include="..\DomainEvents\DomainEvents.csproj">
       <Project>{2E0FC363-F000-472F-88CD-22504037258E}</Project>
@@ -75,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
