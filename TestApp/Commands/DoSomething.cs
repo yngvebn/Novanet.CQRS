@@ -1,4 +1,4 @@
-﻿using CQRS.Commands;
+﻿using Novanet.CQRS.Commands;
 
 namespace TestApp.Commands
 {

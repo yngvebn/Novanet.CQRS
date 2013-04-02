@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using CQRS.Commands;
-using CQRS.Core;
-using CQRS.DomainEvent;
-using CQRS.Ninject;
 using Ninject;
 using Ninject.Extensions.Conventions;
+using Novanet.CQRS.Commands;
+using Novanet.CQRS.Core;
+using Novanet.CQRS.DomainEvents;
+using Novanet.CQRS.Ninject;
 using TestApp.Commands;
 using TestApp.Events;
 using TestApp.Handlers;

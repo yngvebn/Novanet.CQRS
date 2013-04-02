@@ -1,5 +1,5 @@
 ﻿using System;
-using CQRS.DomainEvent;
+using Novanet.CQRS.DomainEvents;
 using TestApp.Events;
 using TestApp.Services;
 

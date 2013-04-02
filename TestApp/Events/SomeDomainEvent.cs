@@ -1,4 +1,4 @@
-﻿using CQRS.DomainEvent;
+﻿using Novanet.CQRS.DomainEvents;
 
 namespace TestApp.Events
 {
